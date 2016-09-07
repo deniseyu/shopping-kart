@@ -18,18 +18,30 @@ describe 'Basket' do
       basket.add(:orange)
       expect(basket.total).to eq 25
     end
-
-    it 'has value of 170 when two apples and two oranges added' do
-      basket = Basket.new
-      basket.add(:orange)
-      basket.add(:orange)
-      basket.add(:apple)
-      basket.add(:apple)
-      expect(basket.total).to eq 170
-    end
   end
 
   context 'simple discounts' do
-  
+    it 'buy one get one free apple: has value of 60 when two apples added' do
+      basket = Basket.new
+      basket.add(:apple)
+      basket.add(:apple)
+      expect(basket.total).to eq 60
+    end
+
+    it 'has value of 120 when three apples added' do
+      basket = Basket.new
+      basket.add(:apple)
+      basket.add(:apple)
+      basket.add(:apple)
+      expect(basket.total).to eq 120
+    end
+
+    it 'three oranges for the price of two' do
+      basket = Basket.new
+      basket.add(:orange)
+      basket.add(:orange)
+      basket.add(:orange)
+      expect(basket.total).to eq 50
+    end
   end
 end
